@@ -1,0 +1,2 @@
+nginx
+ghcr.io/immich-app/immich-server:v3
