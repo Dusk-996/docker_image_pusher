@@ -1,0 +1,18 @@
+name: Docker Image Pusher
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # 支持手动点击触发
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run docker_image_pusher
+        uses: YunlongChen/docker_image_pusher@main
+        env:
+          ALIYUN_NAME_SPACE: ${{ secrets.ALIYUN_NAME_SPACE }}
+          ALIYUN_REGISTRY: ${{ secrets.ALIYUN_REGISTRY }}
+          ALIYUN_REGISTRY_USER: ${{ secrets.ALIYUN_REGISTRY_USER }}
+          ALIYUN_REGISTRY_PASSWORD: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
